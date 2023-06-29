@@ -1,0 +1,11 @@
+{
+  "properties": [
+    {
+      "name": "cold-start",
+      "type": "java.lang.Boolean",
+      "description": "Enable the cold start configuration.",
+      "defaultValue": false,
+      "sourceType": "com.amazonaws.serverless.sample.springboot2.ColdStartOptimizations"
+    }
+  ]
+}
