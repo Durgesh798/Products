@@ -16,19 +16,19 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-
     @GetMapping("/hello")
     public String hello() {
         return "hello";
     }
-
-
     @GetMapping("/product/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable String id){
         return ResponseEntity.ok(productService.getProductById(id));
     }
-
-    @GetMapping("/product/products")
+    @PostMapping("/product")
+    public ResponseEntity<Product> createProduct(@RequestBody Product product){
+        return ResponseEntity.ok(productService.saveProduct(product));
+    }
+    @GetMapping("/product")
     public ResponseEntity<List<Product>> getProductList(){
         return ResponseEntity.ok(productService.getProductList());
     }

@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Example API written with SpringBoot with the aws-serverless-java-container library
+Description: Product API written with SpringBoot with the aws-serverless-java-container library
 
 Globals:
   Api:
@@ -8,13 +8,13 @@ Globals:
     EndpointConfiguration: REGIONAL
 
 Resources:
-  SpringBootMvcFunction:
+  SpringBootFunction:
     Type: AWS::Serverless::Function
     Properties:
       Handler: com.aws.serverless.sample.StreamLambdaHandler::handleRequest
       Runtime: java8
-      CodeUri:
-      MemorySize: 1512
+      CodeUri: .
+      MemorySize: 2700
       Policies: AWSLambdaBasicExecutionRole
       Timeout: 890
       Events:
@@ -29,4 +29,4 @@ Outputs:
     Description: URL for application
     Value: !Sub 'https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/'
     Export:
-      Name: SpringBootMvcApi
+      Name: ProductApi
